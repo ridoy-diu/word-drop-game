@@ -2,11 +2,11 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.random;
+import java.util.Random;
 
-
-public class WordDropGame extends JPanel {
+public class WordDropGame extends JPanel implements ActionListener, KeyListener {
 
     JButton playButton, pauseButton, playAgainButton;
     Timer timer;
@@ -16,12 +16,9 @@ public class WordDropGame extends JPanel {
     String currentWord = "";
     int score = 0;
     boolean gameOver = false;
-
-    String[] wordBank = {"java", "loop", "class", "method", "object", "paint"};
+    String[] wordBank = { "java", "loop", "class", "method", "object", "paint" };
     int timerDelay = 100;
 
-
-    
     WordDropGame() {
 
         setBackground(Color.DARK_GRAY);
@@ -38,5 +35,37 @@ public class WordDropGame extends JPanel {
         playButton.setFocusable(false);
         pauseButton.setFocusable(false);
         playAgainButton.setFocusable(false);
+    }
+
+    void startGame() {
+
+    }
+
+    void pauseGame() {
+
+    }
+
+    void resetGame() {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
