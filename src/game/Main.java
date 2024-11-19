@@ -9,6 +9,7 @@ public class Main {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(game);
         f.pack();
+        f.setLocationRelativeTo(null);
 
         f.setVisible(true);
     }

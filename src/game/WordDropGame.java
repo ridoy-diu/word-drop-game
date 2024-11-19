@@ -1,10 +1,10 @@
 package game;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.*;
 
 public class WordDropGame extends JPanel implements ActionListener, KeyListener {
 
@@ -68,6 +68,17 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     void resetGame() {
 
     }
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, getWidth(), getHeight());
+        g.setFont(new Font("Verdana", Font.BOLD, 22));
+        g.setColor(Color.YELLOW);
+        g.drawString("Score: " + score, 20, 30);
+        g.setColor(Color.GREEN);
+        g.drawString("Typed Word: " + currentWord, 20, getHeight() - 30);
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -88,4 +99,5 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     public void actionPerformed(ActionEvent e) {
 
     }
+    
 }
