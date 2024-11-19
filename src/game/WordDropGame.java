@@ -19,6 +19,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     String[] wordBank = { "java", "loop", "class", "method", "object", "paint" };
     int timerDelay = 100;
 
+    @SuppressWarnings("unused")
     WordDropGame() {
 
         setBackground(Color.DARK_GRAY);
@@ -35,14 +36,33 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         playButton.setFocusable(false);
         pauseButton.setFocusable(false);
         playAgainButton.setFocusable(false);
+
+        words = new ArrayList<>();
+        wordX = new ArrayList<>();
+        wordY = new ArrayList<>();
+        random = new Random();
+        timer = new Timer(timerDelay, this);
+        playAgainButton.setVisible(true);
+        pauseButton.setEnabled(false);
+
+        addKeyListener(this);
+        playButton.addActionListener(e -> startGame());
+        pauseButton.addActionListener(e -> pauseGame());
+        playAgainButton.addActionListener(e -> resetGame());
+
     }
 
     void startGame() {
-
+        timer.start();
+        playButton.setEnabled(false);
+        pauseButton.setEnabled(true);
+        gameOver = false;
     }
 
     void pauseGame() {
-
+        timer.stop();
+        playButton.setEnabled(true);
+        pauseButton.setEnabled(false);
     }
 
     void resetGame() {
