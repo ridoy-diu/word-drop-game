@@ -15,7 +15,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     Random random;
     String currentWord = "";
     int score = 0;
-    boolean gameOver = false;
+    boolean gameOver = true;
     String[] wordBank = { "java", "loop", "class", "method", "object", "paint" };
     int timerDelay = 100;
 
@@ -73,11 +73,24 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(), getHeight());
+
+        if (gameOver) {
+            g.setColor(Color.RED);
+            g.setFont(new Font("Verdana", Font.BOLD, 40));
+            g.drawString("Game Over", getWidth() / 2 - 120, getHeight() / 2 - 60);
+            g.setFont(new Font("Verdana", Font.BOLD, 30));
+            g.drawString("Score: " + score, getWidth() / 2 - 80, getHeight() / 2);
+            playAgainButton.setVisible(true);
+            return;
+        }
+
         g.setFont(new Font("Verdana", Font.BOLD, 22));
         g.setColor(Color.YELLOW);
         g.drawString("Score: " + score, 20, 30);
         g.setColor(Color.GREEN);
         g.drawString("Typed Word: " + currentWord, 20, getHeight() - 30);
+
+       
     }
 
     @Override
