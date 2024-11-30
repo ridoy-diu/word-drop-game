@@ -57,6 +57,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         playButton.setEnabled(false);
         pauseButton.setEnabled(true);
         gameOver = false;
+        repaint();
     }
 
     void pauseGame() {
@@ -74,6 +75,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         playButton.setEnabled(true);
         playAgainButton.setVisible(false);
         pauseButton.setEnabled(false);
+        repaint();
     }
 
     @Override
