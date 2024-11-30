@@ -71,6 +71,9 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         currentWord = "";
         timerDelay = 100;
         timer.setDelay(timerDelay);
+        playButton.setEnabled(true);
+        playAgainButton.setVisible(false);
+        pauseButton.setEnabled(false);
     }
 
     @Override
