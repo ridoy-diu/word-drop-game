@@ -122,5 +122,17 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     public void actionPerformed(ActionEvent e) {
 
     }
+
+    public static void main(String[] args) { 
+        JFrame frame = new JFrame("Word Drop Game"); 
+        WordDropGame game = new WordDropGame(); 
+ 
+        frame.add(game); 
+        frame.pack(); 
+        frame.setResizable(false); 
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        frame.setVisible(true); 
+    }  
     
 }
