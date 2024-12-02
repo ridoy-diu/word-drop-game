@@ -54,6 +54,16 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         pauseButton.addActionListener(e -> pauseGame());
         playAgainButton.addActionListener(e -> resetGame());
 
+        wordTimer = new Timer(wordAddInterval, e -> addNewWord());
+
+
+    }
+
+    void addNewWord() { 
+        String newWord = wordBank[random.nextInt(wordBank.length)];
+        words.add(newWord); 
+        wordX.add(random.nextInt(getWidth() - 100)); 
+        wordY.add(0);
     }
 
     void startGame() {
