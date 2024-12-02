@@ -9,7 +9,7 @@ import javax.swing.*;
 public class WordDropGame extends JPanel implements ActionListener, KeyListener {
 
     JButton playButton, pauseButton, playAgainButton;
-    Timer timer;
+    Timer timer, wordTimer;
     ArrayList<String> words;
     ArrayList<Integer> wordX, wordY;
     Random random;
@@ -21,7 +21,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     int scoreThreshold = 100;
     boolean gameOver = true;
     String[] wordBank = { "java", "loop", "class", "method", "object", "paint" };
-    int timerDelay = 100;
+    int wordAddInterval = 1500;
 
     @SuppressWarnings("unused")
     WordDropGame() {
