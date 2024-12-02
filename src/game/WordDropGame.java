@@ -66,8 +66,13 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         wordY.add(0);
     }
 
+    void checkLevelUp() { 
+         
+    } 
+
     void startGame() {
         timer.start();
+        wordTimer.start();
         playButton.setEnabled(false);
         pauseButton.setEnabled(true);
         gameOver = false;
@@ -76,6 +81,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
     void pauseGame() {
         timer.stop();
+        wordTimer.stop();
         playButton.setEnabled(true);
         pauseButton.setEnabled(false);
     }
