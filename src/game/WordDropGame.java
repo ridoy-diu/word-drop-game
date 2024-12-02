@@ -17,6 +17,8 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     int score = 0;
     int level = 1;
     int lives = 3;
+    int timerDelay = 50;
+    int scoreThreshold = 100;
     boolean gameOver = true;
     String[] wordBank = { "java", "loop", "class", "method", "object", "paint" };
     int timerDelay = 100;
