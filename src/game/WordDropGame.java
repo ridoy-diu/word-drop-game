@@ -112,11 +112,16 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         g.fillRect(0, 0, getWidth(), getHeight());
 
         if (gameOver) {
+            g.setColor(Color.DARK_GRAY); 
+            g.fillRect(0, 0, getWidth(), getHeight());
             g.setColor(Color.RED);
-            g.setFont(new Font("Verdana", Font.BOLD, 40));
-            g.drawString("Game Over", getWidth() / 2 - 120, getHeight() / 2 - 60);
-            g.setFont(new Font("Verdana", Font.BOLD, 30));
-            g.drawString("Score: " + score, getWidth() / 2 - 80, getHeight() / 2);
+            g.setFont(new Font("Verdana", Font.BOLD, 60));
+            String gameOverText = "Game Over!";
+            FontMetrics metrics = g.getFontMetrics(g.getFont());
+            int xPos = (getWidth() - metrics.stringWidth(gameOverText)) / 2; 
+            g.drawString(gameOverText, xPos, getHeight() / 2 - 60);
+
+            
             playAgainButton.setVisible(true);
             return;
         }
