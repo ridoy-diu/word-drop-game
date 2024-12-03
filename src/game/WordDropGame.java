@@ -189,6 +189,12 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (gameOver) return; 
+        for (int i = 0; i < wordY.size(); i++) { 
+            int fallSpeed = 7; 
+            wordY.set(i, wordY.get(i) + fallSpeed); 
+ 
+            
+        }
          checkLevelUp(); 
          repaint();
 
