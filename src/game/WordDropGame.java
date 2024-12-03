@@ -184,6 +184,15 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
        if (Character.isLetter(keyChar)) { 
         currentWord += keyChar; 
+
+        for (int i = 0; i < words.size(); i++) { 
+            if (currentWord.equals(words.get(i))) { 
+                words.remove(i); 
+                wordX.remove(i); 
+                wordY.remove(i); 
+              
+            } 
+        } 
     } 
 
 
