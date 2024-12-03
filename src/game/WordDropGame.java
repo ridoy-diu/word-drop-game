@@ -20,7 +20,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     int timerDelay = 50;
     int scoreThreshold = 100;
     boolean gameOver = false;
-    String[] wordBank = { "java", "loop", "class", "method", "object", "paint" };
+    String[] wordBank = {"cat", "dog", "fish", "bird", "tree", "book", "star", "moon", "sun", "car", "house", "ball", "toy", "cake", "hat", "shoe", "desk", "lamp", "door", "key", "apple", "orange", "grape", "pencil", "paper", "table", "chair", "water", "juice", "milk", "bread", "music", "dance", "happy", "sadness", "friend", "family", "garden", "forest", "mountain", "ocean", "chocolate", "universe", "elephant", "giraffe", "kangaroo", "dolphin", "tiger", "lion", "zebra", "pasta", "cereal", "computer", "science","history","geography","language","art","algorithm","variable","function","inheritance","polymorphism","exception","synchronization","interface","encapsulation","mathematics","philosophy","conundrum","paradigm","quintessential","ephemeral","hypothesis","theory","experiment","analysis","data","research","conclusion","evidence","variable","control","phenomenon","observation","interpretation","community","environment","government","economy","technology","innovation","education","culture","society","tradition"};
     int wordAddInterval = 1500;
 
     @SuppressWarnings("unused")
