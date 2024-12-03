@@ -183,7 +183,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
        char keyChar = e.getKeyChar();
 
        if (Character.isLetter(keyChar)) { 
-        currentWord += keyChar; 
+        currentWord += keyChar; }
 
         for (int i = 0; i < words.size(); i++) { 
             if (currentWord.equals(words.get(i))) { 
@@ -194,6 +194,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
                 currentWord = ""; 
                 break; 
             } 
+        }
 
             if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && currentWord.length() > 0) { 
                 currentWord = currentWord.substring(0, currentWord.length() - 1); 
@@ -201,8 +202,8 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
      
             repaint();
         } 
-    } 
-    }
+    
+    
 
     @Override
     public void keyReleased(KeyEvent e) {
