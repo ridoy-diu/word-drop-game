@@ -56,19 +56,18 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
         wordTimer = new Timer(wordAddInterval, e -> addNewWord());
 
-
     }
 
-    void addNewWord() { 
+    void addNewWord() {
         String newWord = wordBank[random.nextInt(wordBank.length)];
-        words.add(newWord); 
-        wordX.add(random.nextInt(getWidth() - 100)); 
+        words.add(newWord);
+        wordX.add(random.nextInt(getWidth() - 100));
         wordY.add(0);
     }
 
-    void checkLevelUp() { 
-         
-    } 
+    void checkLevelUp() {
+
+    }
 
     void startGame() {
         timer.start();
@@ -112,32 +111,32 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         g.fillRect(0, 0, getWidth(), getHeight());
 
         if (gameOver) {
-            g.setColor(Color.DARK_GRAY); 
+            g.setColor(Color.DARK_GRAY);
             g.fillRect(0, 0, getWidth(), getHeight());
+
             g.setColor(Color.RED);
             g.setFont(new Font("Verdana", Font.BOLD, 60));
             String gameOverText = "Game Over!";
             FontMetrics metrics = g.getFontMetrics(g.getFont());
-            int xPos = (getWidth() - metrics.stringWidth(gameOverText)) / 2; 
+            int xPos = (getWidth() - metrics.stringWidth(gameOverText)) / 2;
             g.drawString(gameOverText, xPos, getHeight() / 2 - 60);
 
             g.setColor(Color.YELLOW);
             g.setFont(new Font("Verdana", Font.BOLD, 40));
             String scoreText = "Score: " + score;
             metrics = g.getFontMetrics(g.getFont());
-            xPos = (getWidth() - metrics.stringWidth(scoreText)) / 2; 
+            xPos = (getWidth() - metrics.stringWidth(scoreText)) / 2;
             g.drawString(scoreText, xPos, getHeight() / 2 + 20);
 
             g.setColor(Color.GREEN);
             g.setFont(new Font("Arial", Font.PLAIN, 30));
             String tryAgainText = "Try Again!";
             metrics = g.getFontMetrics(g.getFont());
-            xPos = (getWidth() - metrics.stringWidth(tryAgainText)) / 2; 
+            xPos = (getWidth() - metrics.stringWidth(tryAgainText)) / 2;
             g.drawString(tryAgainText, xPos, getHeight() / 2 + 80);
 
-            playButton.setVisible(false); 
+            playButton.setVisible(false);
             pauseButton.setVisible(false);
-
             playAgainButton.setVisible(true);
             return;
         }
@@ -149,12 +148,17 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 20));
 
-       for (int i = 0; i < words.size(); i++) {
-           g.drawString(words.get(i), wordX.get(i), wordY.get(i));
-       }
-       g.setColor(Color.GREEN);
-       g.drawString("Typed Word: " + currentWord, 20, getHeight() - 40);
-       
+        for (int i = 0; i < words.size(); i++) {
+            g.drawString(words.get(i), wordX.get(i), wordY.get(i));
+        }
+
+        g.setColor(Color.GREEN);
+        g.drawString("Typed Word: " + currentWord, 20, getHeight() - 40);
+
+        g.setColor(Color.YELLOW);
+        String levelText = "Level: " + level;
+        FontMetrics metricsLevel = g.getFontMetrics(g.getFont());
+
     }
 
     @Override
@@ -177,16 +181,16 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
     }
 
-    public static void main(String[] args) { 
-        JFrame frame = new JFrame("Word Drop Game"); 
-        WordDropGame game = new WordDropGame(); 
- 
-        frame.add(game); 
-        frame.pack(); 
-        frame.setResizable(false); 
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Word Drop Game");
+        WordDropGame game = new WordDropGame();
+
+        frame.add(game);
+        frame.pack();
+        frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        frame.setVisible(true); 
-    }  
-    
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+
 }
