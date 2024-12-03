@@ -194,11 +194,14 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
                 currentWord = ""; 
                 break; 
             } 
+
+            if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && currentWord.length() > 0) { 
+                currentWord = currentWord.substring(0, currentWord.length() - 1); 
+            } 
+     
+            repaint();
         } 
     } 
-
-
-
     }
 
     @Override
