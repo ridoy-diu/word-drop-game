@@ -197,6 +197,11 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
                 wordX.remove(i); 
                 wordY.remove(i); 
                 lives--; 
+                if (lives <= 0) { 
+                    gameOver = true;
+                    timer.stop(); 
+                    wordTimer.stop(); 
+                }
  
               
             }
