@@ -72,8 +72,9 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
             timer.setDelay(timerDelay);  
             System.out.println("Level Up! Current Level: " + level + " | New Timer Delay: " + timerDelay); 
         }
-
+        
     }
+    
 
     void startGame() {
         timer.start();
@@ -187,6 +188,9 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (gameOver) return; 
+         checkLevelUp(); 
+         repaint();
 
     }
 
