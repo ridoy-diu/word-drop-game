@@ -152,6 +152,8 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
        for (int i = 0; i < words.size(); i++) {
            g.drawString(words.get(i), wordX.get(i), wordY.get(i));
        }
+       g.setColor(Color.GREEN);
+       g.drawString("Typed Word: " + currentWord, 20, getHeight() - 40);
        
     }
 
