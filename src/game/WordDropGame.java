@@ -66,6 +66,12 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     }
 
     void checkLevelUp() {
+        if (score >= level * scoreThreshold) { 
+            level++; 
+            timerDelay = Math.max(30, timerDelay - 10); 
+            timer.setDelay(timerDelay);  
+            System.out.println("Level Up! Current Level: " + level + " | New Timer Delay: " + timerDelay); 
+        }
 
     }
 
