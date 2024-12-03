@@ -134,6 +134,9 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
             metrics = g.getFontMetrics(g.getFont());
             xPos = (getWidth() - metrics.stringWidth(tryAgainText)) / 2; 
             g.drawString(tryAgainText, xPos, getHeight() / 2 + 80);
+
+            playButton.setVisible(false); 
+            pauseButton.setVisible(false);
             
             playAgainButton.setVisible(true);
             return;
