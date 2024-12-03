@@ -178,6 +178,10 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (gameOver) return; 
+
+       char keyChar = e.getKeyChar();
+
 
     }
 
