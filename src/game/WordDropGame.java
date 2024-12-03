@@ -146,12 +146,12 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         g.setFont(new Font("Arial", Font.BOLD, 20));
         g.drawString("Lives: " + lives, 20, 30);
 
-        g.setFont(new Font("Verdana", Font.BOLD, 22));
-        g.setColor(Color.YELLOW);
-        g.drawString("Score: " + score, 20, 30);
-        g.setColor(Color.GREEN);
-        g.drawString("Typed Word: " + currentWord, 20, getHeight() - 30);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
 
+       for (int i = 0; i < words.size(); i++) {
+           g.drawString(words.get(i), wordX.get(i), wordY.get(i));
+       }
        
     }
 
