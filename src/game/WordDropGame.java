@@ -151,12 +151,10 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         g.drawString("Typed Word: " + currentWord, 20, getHeight() - 40);
 
         g.setColor(Color.YELLOW);
-        String levelText = "Level: " + level;
+        String levelText = String.format("Level: %d | Score: %d ", level, score); 
         FontMetrics metricsLevel = g.getFontMetrics(g.getFont());
         int levelXPos = getWidth() - metricsLevel.stringWidth(levelText) - 20;
         g.drawString(levelText, levelXPos, 30);
-        g.drawString("Score: " + score, 20, 50);
-
     }
 
     @Override
