@@ -3,6 +3,7 @@ package game;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import javax.swing.*;
 
@@ -12,6 +13,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     Timer timer, wordTimer;
     ArrayList<String> words;
     ArrayList<Integer> wordX, wordY;
+    HashMap<String, Image> wordImages; 
     Random random;
     String currentWord = "";
     int score = 0;
@@ -20,10 +22,9 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     int timerDelay = 50;
     int scoreThreshold = 100;
     boolean gameOver = false;
-    String[] wordBank = {"cat", "dog", "fish", "bird", "tree", "book", "star", "moon", "sun", "car", "house", "ball", "toy", "cake", "hat", "shoe", "desk", "lamp", "door", "key", "apple", "orange", "grape", "pencil", "paper", "table", "chair", "water", "juice", "milk", "bread", "music", "dance", "happy", "sadness", "friend", "family", "garden", "forest", "mountain", "ocean", "chocolate", "universe", "elephant", "giraffe", "kangaroo", "dolphin", "tiger", "lion", "zebra", "pasta", "cereal", "computer", "science","history","geography","language","art","algorithm","variable","function","inheritance","polymorphism","exception","synchronization","interface","encapsulation","mathematics","philosophy","conundrum","paradigm","quintessential","ephemeral","hypothesis","theory","experiment","analysis","data","research","conclusion","evidence","variable","control","phenomenon","observation","interpretation","community","environment","government","economy","technology","innovation","education","culture","society","tradition"};
+    String[] wordBank = { "bird", "dog", "cat", "strawberry", "sunflower", "apple" };
     int wordAddInterval = 1500;
 
-    @SuppressWarnings("unused")
     WordDropGame() {
         setFocusable(true);
         addKeyListener(this);
@@ -32,6 +33,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         words = new ArrayList<>();
         wordX = new ArrayList<>();
         wordY = new ArrayList<>();
+        wordImages = new HashMap<>();
         random = new Random();
         timer = new Timer(timerDelay, this);
 
@@ -51,13 +53,23 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         pauseButton.setFocusable(false);
         playAgainButton.setFocusable(false);
 
-        
         playAgainButton.setVisible(false);
         pauseButton.setEnabled(false);
 
         setPreferredSize(new Dimension(800, 600));
-        
+
         wordTimer = new Timer(wordAddInterval, e -> addNewWord());
+
+        try {
+            wordImages.put("bird", new ImageIcon("bird.jpg").getImage());
+            wordImages.put("dog", new ImageIcon("dog.jpeg").getImage());
+            wordImages.put("cat", new ImageIcon("cat.jpg").getImage());
+            wordImages.put("apple", new ImageIcon("apple.jpg").getImage());
+            wordImages.put("sunflower", new ImageIcon("sunflower.jpg").getImage());
+            wordImages.put("strawberry", new ImageIcon("strawberry.png").getImage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     void startGame() {
@@ -140,21 +152,30 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         g.setFont(new Font("Arial", Font.BOLD, 20));
         g.drawString("Lives: " + lives, 20, 30);
 
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.setColor(Color.YELLOW);
+        String levelText = String.format("Level: %d | Score: %d", level, score);
+        FontMetrics metricsLevel = g.getFontMetrics(g.getFont());
+        int levelXPos = getWidth() - metricsLevel.stringWidth(levelText) - 20;
+        g.drawString(levelText, levelXPos, 30);
 
         for (int i = 0; i < words.size(); i++) {
-            g.drawString(words.get(i), wordX.get(i), wordY.get(i));
+            String word = words.get(i);
+
+            if (wordImages.containsKey(word)) {
+                Image image = wordImages.get(word);
+                g.drawImage(image, wordX.get(i), wordY.get(i), 250, 200, this);
+                g.setColor(Color.WHITE);
+                g.setFont(new Font("Arial", Font.BOLD, 20));
+                g.drawString(word, wordX.get(i) + 20, wordY.get(i) + 120);
+            } else {
+                g.setColor(Color.WHITE);
+                g.setFont(new Font("Arial", Font.BOLD, 20));
+                g.drawString(word, wordX.get(i), wordY.get(i));
+            }
         }
 
         g.setColor(Color.GREEN);
         g.drawString("Typed Word: " + currentWord, 20, getHeight() - 40);
-
-        g.setColor(Color.YELLOW);
-        String levelText = String.format("Level: %d | Score: %d ", level, score); 
-        FontMetrics metricsLevel = g.getFontMetrics(g.getFont());
-        int levelXPos = getWidth() - metricsLevel.stringWidth(levelText) - 20;
-        g.drawString(levelText, levelXPos, 30);
     }
 
     @Override
@@ -230,12 +251,10 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-    }
+    public void keyReleased(KeyEvent e) {}
 
     @Override
-    public void keyTyped(KeyEvent e) {
-    }
+    public void keyTyped(KeyEvent e) {}
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Word Drop Game");
@@ -243,10 +262,9 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
         frame.add(game);
         frame.pack();
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-
 }
