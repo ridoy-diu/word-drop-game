@@ -15,6 +15,14 @@ public String[] fruits = {
     "longan", "rambutan", "tamarind", "quince", "soursop", "sapodilla", "ugli", "olive", "mandarin",
     "grapefruit", "boysenberry", "cantaloupe"
 };
+public String[] flowers = {
+    "rose", "tulip", "sunflower", "daisy", "lily", "orchid", "lavender", "marigold", "hibiscus", "lotus",
+    "violet", "poppy", "daffodil", "jasmine", "camellia", "magnolia", "cherryblossom", "petunia", "dahlia",
+    "anemone", "geranium", "gladiolus", "hydrangea", "gardenia", "azalea", "snapdragon", "begonia",
+    "bougainvillea", "morningglory", "peony", "zinnia", "freesia", "cosmos", "nasturtium", "amaryllis",
+    "calendula", "foxglove", "goldenrod", "larkspur", "pansy", "salvia", "veronica", "wisteria", "yarrow",
+    "clematis", "columbine", "delphinium", "marjoram", "mint", "thyme"
+};
 
 
 }
