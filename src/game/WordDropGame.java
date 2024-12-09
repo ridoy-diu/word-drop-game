@@ -115,6 +115,9 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     }
 
     private void addWord() {
+        if (wordBank != null && words.size() < 10) {
+
+        }
 
     }
 
