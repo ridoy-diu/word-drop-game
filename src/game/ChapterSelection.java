@@ -21,5 +21,13 @@ public class ChapterSelection extends JPanel {
         welcomeLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         welcomeLabel.setForeground(Color.DARK_GRAY);
 
+        JLabel selectLabel = new JLabel("Select a Chapter:");
+        selectLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 28));
+        selectLabel.setForeground(Color.DARK_GRAY);
+
+        JPanel buttonPanel = new JPanel(new GridLayout(0, 1, 15, 15)); // Larger gaps
+        buttonPanel.setOpaque(false);
+
+
 
 }
