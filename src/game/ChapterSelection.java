@@ -1,11 +1,13 @@
 package game;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class ChapterSelection extends JPanel {
+
     private final JFrame frame;
-    private final WordDropGame gamePanel
-    ;
+    private final WordDropGame gamePanel;
+
     public ChapterSelection(JFrame frame, WordDropGame gamePanel) {
         if (frame == null || gamePanel == null) {
             throw new IllegalArgumentException("Frame and gamePanel cannot be null.");
@@ -27,6 +29,7 @@ public class ChapterSelection extends JPanel {
 
         JPanel buttonPanel = new JPanel(new GridLayout(0, 1, 15, 15)); 
         buttonPanel.setOpaque(false);
+
         WordBank wordBank = new WordBank(); 
         String[] chapters = {"Animals", "Fruits", "Flowers", "Vehicles", "Toys"};
         String[][] wordBanks = {
@@ -66,8 +69,4 @@ public class ChapterSelection extends JPanel {
         frame.repaint();
         gamePanel.requestFocusInWindow();
     }
-
-
-
-
 }

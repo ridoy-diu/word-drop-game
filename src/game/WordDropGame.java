@@ -1,29 +1,27 @@
 package game;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-import javax.swing.*;
 
 public class WordDropGame extends JPanel implements ActionListener, KeyListener {
 
-    JButton playButton, pauseButton, playAgainButton;
-    Timer timer, wordTimer;
-    ArrayList<String> words;
-    ArrayList<Integer> wordX, wordY;
-    HashMap<String, Image> wordImages;
-    Random random;
-    String currentWord = "";
-    int score = 0;
-    int level = 1;
-    int lives = 3;
-    int timerDelay = 50;
-    int scoreThreshold = 100;
-    boolean gameOver = false;
-    String[] wordBank = { "bird", "dog", "cat", "strawberry", "sunflower", "apple" };
-    int wordAddInterval = 1500;
+    private final Timer timer, wordTimer;
+    private final ArrayList<String> words;
+    private final ArrayList<Integer> wordX, wordY;
+    private final ArrayList<ImageIcon> wordImages;
+    private final Random random;
+    private String[] wordBank;
+    private String currentWord = "";
+    private int score = 0, lives = 3;
+    private boolean gameOver = false;
+
+    private final JButton playButton, pauseButton, replayButton, backButton;
+    private final HashMap<String, ImageIcon> imageMap;
 
     WordDropGame() {
         setFocusable(true);
@@ -60,54 +58,28 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
         wordTimer = new Timer(wordAddInterval, e -> addNewWord());
 
-        try {
-            wordImages.put("bird", new ImageIcon("src/images/bird.jpg").getImage());
-            wordImages.put("dog", new ImageIcon("src/images/dog.jpg").getImage());
-            wordImages.put("cat", new ImageIcon("src/images/cat.jpg").getImage());
-            wordImages.put("apple", new ImageIcon("src/images/apple.jpg").getImage());
-            wordImages.put("sunflower", new ImageIcon("src/images/sunflower.jpg").getImage());
-            wordImages.put("strawberry", new ImageIcon("src/images/strawberry.png").getImage());
-        } catch (Exception e) {
-            System.out.println("Error loading images: " + e.getMessage());
-        }
     }
 
-    void startGame() {
+    private void startGame() {
         timer.start();
         wordTimer.start();
         playButton.setEnabled(false);
         pauseButton.setEnabled(true);
-        gameOver = false;
-        repaint();
+        replayButton.setVisible(false);
+        requestFocusInWindow();
     }
 
-    void pauseGame() {
+    private void pauseGame() {
         timer.stop();
         wordTimer.stop();
         playButton.setEnabled(true);
         pauseButton.setEnabled(false);
     }
 
-    void resetGame() {
-        gameOver = false;
-        score = 0;
-        level = 1;
-        lives = 3;
-        words.clear();
-        wordX.clear();
-        wordY.clear();
-        currentWord = "";
-
-        timerDelay = 50;
-        timer.setDelay(timerDelay);
-
-        playButton.setEnabled(true);
-        playAgainButton.setVisible(false);
-        pauseButton.setEnabled(false);
-
-        repaint();
-        timer.start();
-        wordTimer.start();
+    private void resetGame() {
+        stopTimers();
+        initializeGame();
+        startGame();
     }
 
     @Override
