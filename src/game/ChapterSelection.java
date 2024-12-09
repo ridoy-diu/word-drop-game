@@ -25,8 +25,19 @@ public class ChapterSelection extends JPanel {
         selectLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 28));
         selectLabel.setForeground(Color.DARK_GRAY);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(0, 1, 15, 15)); // Larger gaps
+        JPanel buttonPanel = new JPanel(new GridLayout(0, 1, 15, 15)); 
         buttonPanel.setOpaque(false);
+
+        for (int i = 0; i < chapters.length; i++) {
+            final int index = i; 
+            JButton chapterButton = new JButton(chapters[i]);
+            chapterButton.setFont(new Font("Comic Sans MS", Font.BOLD, 24)); 
+            chapterButton.setPreferredSize(new Dimension(250, 60)); 
+            chapterButton.setForeground(Color.DARK_GRAY); 
+            chapterButton.addActionListener(e -> startGameWithChapter(chapters[index], wordBanks[index])); final index
+            chapterButton.setToolTipText("Click to start the " + chapters[i] + " chapter.");
+            buttonPanel.add(chapterButton);
+        }
 
 
 
