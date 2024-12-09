@@ -140,7 +140,12 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
             if (attempts >= retryLimit) {
                 System.err.println("Failed to place word after " + retryLimit + " attempts");
                 return;
+
             }
+
+            words.add(word);
+            wordX.add(x);
+            wordY.add(y);
 
         }
         
