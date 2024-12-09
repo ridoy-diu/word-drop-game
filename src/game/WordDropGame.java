@@ -122,7 +122,23 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
             int retryLimit = 50;
             int attempts = 0;
             boolean positionValid;
+
+            do {
+                positionValid = true;
+                x = random.nextInt(Math.max(200, getWidth() - 200));
+                for (int i = 0; i < words.size(); i++) {
+                    int existingX = wordX.get(i);
+                    int existingY = wordY.get(i);
+                    if (Math.abs(x - existingX) < 220 && Math.abs(y - existingY) < 220) {
+                        positionValid = false;
+                        break;
+                    }
+                }
+                attempts++;
+            } while (!positionValid && attempts < retryLimit);
+
         }
+        
 
     }
 
