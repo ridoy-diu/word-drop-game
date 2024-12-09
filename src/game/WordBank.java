@@ -23,6 +23,14 @@ public String[] flowers = {
     "calendula", "foxglove", "goldenrod", "larkspur", "pansy", "salvia", "veronica", "wisteria", "yarrow",
     "clematis", "columbine", "delphinium", "marjoram", "mint", "thyme"
 };
+public String[] vehicles = {
+    "car", "bus", "bike", "truck", "train", "scooter", "airplane", "helicopter", "boat", "ship",
+    "submarine", "yacht", "tram", "metro", "rickshaw", "taxi", "ambulance", "firetruck", "bulldozer", "crane",
+    "tractor", "skateboard", "hoverboard", "jetski", "sailboat", "spaceship", "glider", "limousine", "minibus",
+    "van", "pickup", "wagon", "horsecart", "canoe", "kayak", "raft", "snowmobile", "balloon", "zeppelin",
+    "roller", "trolley", "segway", "hovercraft", "cart", "sled", "gondola", "chariot", "motorcycle", "shuttle",
+    "biplane"
+};
 
 
 }
