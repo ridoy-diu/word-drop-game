@@ -69,6 +69,14 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         add(buttonPanel, BorderLayout.NORTH);
     }
 
+    public void setWordBank() {
+        
+    }
+
+    private void loadImages() {
+        
+    }
+
     public void initializeGame() {
         words.clear();
         wordX.clear();
@@ -106,6 +114,10 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         startGame();
     }
 
+    private void addWord() {
+
+    }
+
     public void stopTimers() {
         timer.stop();
         wordTimer.stop();
@@ -140,70 +152,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, getWidth(), getHeight());
-
-        if (gameOver) {
-            g.setColor(Color.DARK_GRAY);
-            g.fillRect(0, 0, getWidth(), getHeight());
-
-            g.setColor(Color.RED);
-            g.setFont(new Font("Verdana", Font.BOLD, 60));
-            String gameOverText = "Game Over!";
-            FontMetrics metrics = g.getFontMetrics(g.getFont());
-            int xPos = (getWidth() - metrics.stringWidth(gameOverText)) / 2;
-            g.drawString(gameOverText, xPos, getHeight() / 2 - 60);
-
-            g.setColor(Color.YELLOW);
-            g.setFont(new Font("Verdana", Font.BOLD, 40));
-            String scoreText = "Score: " + score;
-            metrics = g.getFontMetrics(g.getFont());
-            xPos = (getWidth() - metrics.stringWidth(scoreText)) / 2;
-            g.drawString(scoreText, xPos, getHeight() / 2 + 20);
-
-            g.setColor(Color.GREEN);
-            g.setFont(new Font("Arial", Font.PLAIN, 30));
-            String tryAgainText = "Try Again!";
-            metrics = g.getFontMetrics(g.getFont());
-            xPos = (getWidth() - metrics.stringWidth(tryAgainText)) / 2;
-            g.drawString(tryAgainText, xPos, getHeight() / 2 + 80);
-
-            playButton.setVisible(false);
-            pauseButton.setVisible(false);
-            playAgainButton.setVisible(true);
-            return;
-        }
-
-        g.setColor(Color.YELLOW);
-        g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Lives: " + lives, 20, 30);
-
-        g.setColor(Color.YELLOW);
-        String levelText = String.format("Level: %d | Score: %d", level, score);
-        FontMetrics metricsLevel = g.getFontMetrics(g.getFont());
-        int levelXPos = getWidth() - metricsLevel.stringWidth(levelText) - 20;
-        g.drawString(levelText, levelXPos, 30);
-
-        for (int i = 0; i < words.size(); i++) {
-            String word = words.get(i);
-
-            if (wordImages.containsKey(word)) {
-                Image image = wordImages.get(word);
-                g.drawImage(image, wordX.get(i), wordY.get(i), 250, 200, this);
-                g.setColor(Color.WHITE);
-                g.setFont(new Font("Arial", Font.BOLD, 20));
-                g.drawString(word, wordX.get(i) + 20, wordY.get(i) + 120);
-            } else {
-                g.setColor(Color.WHITE);
-                g.setFont(new Font("Arial", Font.BOLD, 20));
-                g.drawString(word, wordX.get(i), wordY.get(i));
-            }
-        }
-
-        g.setColor(Color.GREEN);
-        g.drawString("Typed Word: " + currentWord, 20, getHeight() - 40);
+        
     }
 
     @Override
