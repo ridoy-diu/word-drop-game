@@ -14,5 +14,12 @@ public class ChapterSelection extends JPanel {
         this.frame = frame;
         this.gamePanel = gamePanel;
 
+        setLayout(new GridBagLayout());
+        setBackground(Color.LIGHT_GRAY);
+
+        JLabel welcomeLabel = new JLabel("Welcome to Word Drop Game. Hope you enjoy!");
+        welcomeLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+        welcomeLabel.setForeground(Color.DARK_GRAY);
+
 
 }
