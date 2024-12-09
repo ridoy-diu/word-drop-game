@@ -107,6 +107,33 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     }
 
     @Override
+    public void actionPerformed(ActionEvent e) {
+        if (gameOver) {
+            return;
+        }
+
+        for (int i = 0; i < wordY.size(); i++) {
+            wordY.set(i, wordY.get(i) + 2);
+            if (wordY.get(i) > getHeight() - 200) {
+                words.remove(i);
+                wordX.remove(i);
+                wordY.remove(i);
+                wordImages.remove(i);
+                lives--;
+                currentWord = "";
+                if (lives <= 0) {
+                    gameOver = true;
+                    stopTimers();
+                    playButton.setEnabled(false);
+                    pauseButton.setEnabled(false);
+                    replayButton.setVisible(true);
+                }
+            }
+        }
+        repaint();
+    }
+
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -172,49 +199,6 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
         g.setColor(Color.GREEN);
         g.drawString("Typed Word: " + currentWord, 20, getHeight() - 40);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (gameOver)
-            return;
-
-        for (int i = 0; i < wordY.size(); i++) {
-            int fallSpeed = 7;
-            wordY.set(i, wordY.get(i) + fallSpeed);
-
-            if (wordY.get(i) > getHeight()) {
-                words.remove(i);
-                wordX.remove(i);
-                wordY.remove(i);
-                lives--;
-
-                if (lives <= 0) {
-                    gameOver = true;
-                    timer.stop();
-                    wordTimer.stop();
-                }
-            }
-        }
-
-        checkLevelUp();
-        repaint();
-    }
-
-    void checkLevelUp() {
-        if (score >= level * scoreThreshold) {
-            level++;
-            timerDelay = Math.max(30, timerDelay - 10);
-            timer.setDelay(timerDelay);
-            System.out.println("Level Up! Current Level: " + level + " | New Timer Delay: " + timerDelay);
-        }
-    }
-
-    void addNewWord() {
-        String newWord = wordBank[random.nextInt(wordBank.length)];
-        words.add(newWord);
-        wordX.add(random.nextInt(getWidth() - 100));
-        wordY.add(0);
     }
 
     @Override
