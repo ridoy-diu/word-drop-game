@@ -13,7 +13,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     Timer timer, wordTimer;
     ArrayList<String> words;
     ArrayList<Integer> wordX, wordY;
-    HashMap<String, Image> wordImages; 
+    HashMap<String, Image> wordImages;
     Random random;
     String currentWord = "";
     int score = 0;
@@ -61,14 +61,14 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         wordTimer = new Timer(wordAddInterval, e -> addNewWord());
 
         try {
-            wordImages.put("bird", new ImageIcon("bird.jpg").getImage());
-            wordImages.put("dog", new ImageIcon("dog.jpeg").getImage());
-            wordImages.put("cat", new ImageIcon("cat.jpg").getImage());
-            wordImages.put("apple", new ImageIcon("apple.jpg").getImage());
-            wordImages.put("sunflower", new ImageIcon("sunflower.jpg").getImage());
-            wordImages.put("strawberry", new ImageIcon("strawberry.png").getImage());
+            wordImages.put("bird", new ImageIcon("src/images/bird.jpg").getImage());
+            wordImages.put("dog", new ImageIcon("src/images/dog.jpg").getImage());
+            wordImages.put("cat", new ImageIcon("src/images/cat.jpg").getImage());
+            wordImages.put("apple", new ImageIcon("src/images/apple.jpg").getImage());
+            wordImages.put("sunflower", new ImageIcon("src/images/sunflower.jpg").getImage());
+            wordImages.put("strawberry", new ImageIcon("src/images/strawberry.png").getImage());
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error loading images: " + e.getMessage());
         }
     }
 
@@ -251,20 +251,11 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+    }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Word Drop Game");
-        WordDropGame game = new WordDropGame();
-
-        frame.add(game);
-        frame.pack();
-        frame.setResizable(true);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+    public void keyTyped(KeyEvent e) {
     }
+
 }
