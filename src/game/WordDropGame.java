@@ -69,6 +69,21 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         add(buttonPanel, BorderLayout.NORTH);
     }
 
+    public void initializeGame() {
+        words.clear();
+        wordX.clear();
+        wordY.clear();
+        wordImages.clear();
+        currentWord = "";
+        score = 0;
+        lives = 3;
+        gameOver = false;
+        playButton.setEnabled(true);
+        pauseButton.setEnabled(false);
+        replayButton.setVisible(false);
+        requestFocusInWindow();
+    }
+
     private void startGame() {
         timer.start();
         wordTimer.start();
