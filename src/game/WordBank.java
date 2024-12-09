@@ -31,6 +31,14 @@ public String[] vehicles = {
     "roller", "trolley", "segway", "hovercraft", "cart", "sled", "gondola", "chariot", "motorcycle", "shuttle",
     "biplane"
 };
+public String[] toys = {
+    "doll", "ball", "blocks", "robot", "kite", "yoyo", "puzzle", "car", "train", "plane",
+    "drone", "top", "lego", "actionfigure", "teddybear", "slingshot", "marbles", "hulahoop", "bike", "skates",
+    "sandbox", "toyhouse", "phone", "drum", "piano", "violin", "flute", "chess", "cards", "boardgame",
+    "racecar", "helicopter", "bubbles", "toygun", "whistle", "pinwheel", "balloon", "watergun", "beanbag",
+    "frisbee", "tugrope", "jumprope", "dominoes", "football", "basketball", "baseball", "tennisball", "rocket",
+    "playdough"
+};
 
 
 }
