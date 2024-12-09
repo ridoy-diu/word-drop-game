@@ -23,41 +23,50 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     private final JButton playButton, pauseButton, replayButton, backButton;
     private final HashMap<String, ImageIcon> imageMap;
 
-    WordDropGame() {
+    public WordDropGame(JFrame frame) {
         setFocusable(true);
+        requestFocusInWindow();
         addKeyListener(this);
-        setBackground(Color.BLACK);
+        setBackground(Color.LIGHT_GRAY);
 
         words = new ArrayList<>();
         wordX = new ArrayList<>();
         wordY = new ArrayList<>();
-        wordImages = new HashMap<>();
+        wordImages = new ArrayList<>();
         random = new Random();
-        timer = new Timer(timerDelay, this);
+        imageMap = new HashMap<>();
+
+        timer = new Timer(50, this);
+        wordTimer = new Timer(2000, e -> addWord());
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.setOpaque(false);
 
         playButton = new JButton("Play");
-        pauseButton = new JButton("Pause");
-        playAgainButton = new JButton("Play Again");
-
         playButton.addActionListener(e -> startGame());
+        buttonPanel.add(playButton);
+
+        pauseButton = new JButton("Pause");
         pauseButton.addActionListener(e -> pauseGame());
-        playAgainButton.addActionListener(e -> resetGame());
-
-        add(playButton);
-        add(pauseButton);
-        add(playAgainButton);
-
-        playButton.setFocusable(false);
-        pauseButton.setFocusable(false);
-        playAgainButton.setFocusable(false);
-
-        playAgainButton.setVisible(false);
         pauseButton.setEnabled(false);
+        buttonPanel.add(pauseButton);
 
-        setPreferredSize(new Dimension(800, 600));
+        replayButton = new JButton("Play Again");
+        replayButton.addActionListener(e -> resetGame());
+        replayButton.setVisible(false);
+        buttonPanel.add(replayButton);
 
-        wordTimer = new Timer(wordAddInterval, e -> addNewWord());
+        backButton = new JButton("Back to Chapters");
+        backButton.addActionListener(e -> {
+            stopTimers();
+            frame.setContentPane(new ChapterSelection(frame, this));
+            frame.revalidate();
+            frame.repaint();
+        });
+        buttonPanel.add(backButton);
 
+        setLayout(new BorderLayout());
+        add(buttonPanel, BorderLayout.NORTH);
     }
 
     private void startGame() {
