@@ -147,6 +147,14 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
             wordX.add(x);
             wordY.add(y);
 
+            ImageIcon originalIcon = imageMap.get(word);
+            if (originalIcon != null) {
+                Image resizedImage = originalIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+                wordImages.add(new ImageIcon(resizedImage));
+            } else {
+                wordImages.add(null);
+            }
+
         }
         
 
