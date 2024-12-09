@@ -53,6 +53,14 @@ public class ChapterSelection extends JPanel {
         add(buttonPanel, gbc);
     }
 
+    private void startGameWithChapter(String chapterName, String[] wordBank) {
+        gamePanel.setWordBank(wordBank, chapterName.toLowerCase());
+        gamePanel.initializeGame();
+        frame.setContentPane(gamePanel);
+        frame.revalidate();
+        frame.repaint();
+        gamePanel.requestFocusInWindow();
+    }
 
 
 
