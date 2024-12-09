@@ -106,6 +106,11 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         startGame();
     }
 
+    public void stopTimers() {
+        timer.stop();
+        wordTimer.stop();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (gameOver) {
