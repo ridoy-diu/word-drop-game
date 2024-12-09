@@ -27,6 +27,11 @@ public class ChapterSelection extends JPanel {
 
         JPanel buttonPanel = new JPanel(new GridLayout(0, 1, 15, 15)); 
         buttonPanel.setOpaque(false);
+        WordBank wordBank = new WordBank(); 
+        String[] chapters = {"Animals", "Fruits", "Flowers", "Vehicles", "Toys"};
+        String[][] wordBanks = {
+            wordBank.animals, wordBank.fruits, wordBank.flowers, wordBank.vehicles, wordBank.toys
+        };
 
         for (int i = 0; i < chapters.length; i++) {
             final int index = i; 
