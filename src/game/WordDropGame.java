@@ -73,8 +73,9 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         
     }
 
-    private void loadImages() {
+    private void loadImages(String folderName) {
         
+        imageMap.clear();
     }
 
     public void initializeGame() {
