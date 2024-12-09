@@ -36,8 +36,24 @@ public class ChapterSelection extends JPanel {
             chapterButton.setForeground(Color.DARK_GRAY); 
             chapterButton.addActionListener(e -> startGameWithChapter(chapters[index], wordBanks[index])); final index
             chapterButton.setToolTipText("Click to start the " + chapters[i] + " chapter.");
-            buttonPanel.add(chapterButton);
+            buttonPanel.add(chapterButton);  
         }
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(20, 20, 20, 20);
+        gbc.gridx = 0;
+
+        gbc.gridy = 0;
+        add(welcomeLabel, gbc);
+
+        gbc.gridy = 1;
+        add(selectLabel, gbc);
+
+        gbc.gridy = 2;
+        add(buttonPanel, gbc);
+    }
+
+
 
 
 
