@@ -69,8 +69,11 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         add(buttonPanel, BorderLayout.NORTH);
     }
 
-    public void setWordBank() {
+    public void setWordBank(String[] wordBank, String imageFolder) {
         
+        this.wordBank = wordBank;
+        loadImages(imageFolder);
+
     }
 
     private void loadImages(String folderName) {
