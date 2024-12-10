@@ -218,6 +218,17 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
             g.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
             g.drawString(words.get(i), x + 50, y - 10);
 
+            
+            ImageIcon icon = wordImages.get(i);
+            if (icon != null) {
+                icon.paintIcon(this, g, x, y);
+            } else {
+                g.setColor(Color.RED);
+                g.fillRect(x, y, 200, 200);
+                g.setColor(Color.WHITE);
+                g.drawString("No Image", x + 50, y + 100);
+            }
+
         }
 
         g.setColor(Color.DARK_GRAY);
