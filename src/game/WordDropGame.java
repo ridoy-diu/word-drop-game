@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import javax.swing.*;
+import java.net.URL;
 
 public class WordDropGame extends JPanel implements ActionListener, KeyListener {
 
@@ -75,17 +76,19 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
     private void loadImages(String folderName) {
         imageMap.clear();
-        if (resource != null) {
-            ImageIcon icon = new ImageIcon(resource);
-            imageMap.put(word, icon);
-            if (resource != null) {
-                ImageIcon icon = new ImageIcon(resource);
-                imageMap.put(word, icon);
-            } else {
-                System.err.println("Image not found: " + imagePath);
+        for (String word : wordBank) {
+            try {
+                String imagePath = "/images/" + folderName + "/" + word + ".jpg";
+                URL resource = getClass().getResource(imagePath);
+                if (resource != null) {
+                    ImageIcon icon = new ImageIcon(resource);
+                    imageMap.put(word, icon);
+                } else {
+                    System.err.println("Image not found: " + imagePath);
+                }
+            } catch (Exception e) {
+                System.err.println("Error loading image for word: " + word + " in folder: " + folderName);
             }
-        } else {
-            System.err.println("Image not found: " + imagePath);
         }
     }
     

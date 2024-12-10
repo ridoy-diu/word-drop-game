@@ -42,7 +42,7 @@ public class ChapterSelection extends JPanel {
             chapterButton.setFont(new Font("Comic Sans MS", Font.BOLD, 24)); 
             chapterButton.setPreferredSize(new Dimension(250, 60)); 
             chapterButton.setForeground(Color.DARK_GRAY); 
-            chapterButton.addActionListener(e -> startGameWithChapter(chapters[index], wordBanks[index])); final index
+            chapterButton.addActionListener(e -> startGameWithChapter(chapters[index], wordBanks[index]));
             chapterButton.setToolTipText("Click to start the " + chapters[i] + " chapter.");
             buttonPanel.add(chapterButton);  
         }
