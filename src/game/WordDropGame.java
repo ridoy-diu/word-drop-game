@@ -1,12 +1,11 @@
 package game;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+import javax.swing.*;
 
 public class WordDropGame extends JPanel implements ActionListener, KeyListener {
 
@@ -195,7 +194,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
     @Override
     public void paintComponent(Graphics g) {
-        
+        super.paintComponent(g);
     }
 
     @Override
