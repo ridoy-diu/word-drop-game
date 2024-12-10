@@ -203,7 +203,10 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
             int messageX = (getWidth() - g.getFontMetrics().stringWidth(message)) / 2;
             g.drawString(message, messageX, getHeight() / 2 - 50);
 
-           
+            String scoreMessage = "Score: " + score;
+            g.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+            g.drawString(scoreMessage, (getWidth() - g.getFontMetrics().stringWidth(scoreMessage)) / 2, getHeight() / 2 + 20);
+
             return;
         }
 
