@@ -78,6 +78,12 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         if (resource != null) {
             ImageIcon icon = new ImageIcon(resource);
             imageMap.put(word, icon);
+            if (resource != null) {
+                ImageIcon icon = new ImageIcon(resource);
+                imageMap.put(word, icon);
+            } else {
+                System.err.println("Image not found: " + imagePath);
+            }
         } else {
             System.err.println("Image not found: " + imagePath);
         }
