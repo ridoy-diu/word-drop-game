@@ -196,6 +196,17 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        if (gameOver) {
+            g.setColor(Color.DARK_GRAY);
+            g.setFont(new Font("Comic Sans MS", Font.BOLD, 50));
+            String message = "Game Over! :(";
+            int messageX = (getWidth() - g.getFontMetrics().stringWidth(message)) / 2;
+            g.drawString(message, messageX, getHeight() / 2 - 50);
+
+           
+            return;
+        }
+
         g.setColor(Color.DARK_GRAY);
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
         g.drawString("Score: " + score, 20, 30);
@@ -203,6 +214,8 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
 
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         g.drawString("Typed Word: " + currentWord + "_", 20, getHeight() - 40);
+
+
     }
 
     @Override
