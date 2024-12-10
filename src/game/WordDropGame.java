@@ -195,6 +195,11 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        g.setColor(Color.DARK_GRAY);
+        g.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+        g.drawString("Score: " + score, 20, 30);
+        g.drawString("Lives: " + lives, getWidth() - 120, 30);
     }
 
     @Override
