@@ -2,11 +2,11 @@ package game;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import javax.swing.*;
-import java.net.URL;
 
 public class WordDropGame extends JPanel implements ActionListener, KeyListener {
 
@@ -215,7 +215,7 @@ public class WordDropGame extends JPanel implements ActionListener, KeyListener 
         if (gameOver) {
             g.setColor(Color.DARK_GRAY);
             g.setFont(new Font("Comic Sans MS", Font.BOLD, 50));
-            String message = "Game Over! :(";
+            String message = "Oops! Better luck next time :)";
             int messageX = (getWidth() - g.getFontMetrics().stringWidth(message)) / 2;
             g.drawString(message, messageX, getHeight() / 2 - 50);
 
